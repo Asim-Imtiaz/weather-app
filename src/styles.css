@@ -1,0 +1,18 @@
+
+.bg-light-blue {
+  background-color: hsl(205, 32%, 88%) !important; /* Light blue */
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #2a7db4; /* Light gray */
+}
+
+.navbar {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    
+}

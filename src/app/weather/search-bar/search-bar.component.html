@@ -1,0 +1,18 @@
+<!-- Search-Bar -->
+<div class="container my-3 col-md-10">
+  <div class="input-group search-box">
+    <button (click)="onSearch()" class="input-group-text bg-white border-end-0">
+      <i class="fas fa-search text-muted"></i>
+    </button>
+    
+    <input [(ngModel)] = "city" type="text" class="form-control border-start-0" placeholder="Enter City/Country Name here.." (keydown.enter)="onSearch()">
+
+  </div>
+
+  <!-- Loader -->
+  <div *ngIf="isLoading" class="text-center mt-3">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  
+</div>

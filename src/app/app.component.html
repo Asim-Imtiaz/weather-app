@@ -1,0 +1,46 @@
+<!-- NavBar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/" >WeatherWise</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav">
+    <li class="nav-item active"><a class="nav-link" href="#">Today</a>
+    </li><li class="nav-item"><a class="nav-link" href="#">Hourly</a></li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/forecast" (click)="fetchForecast()">3-days</a>
+    </li><li class="nav-item"><a class="nav-link" href="#">Map</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Video</a></li>
+  </ul>
+</div>
+</nav>
+
+
+<!-- Search-Bar -->
+<app-search-bar (search)="fetchWeather($event)"></app-search-bar>
+
+<!-- Show forecast table only if 3-days is Clicked -->
+<app-forecast-display
+  *ngIf="showForecast && forecastData && !errorMessage"
+  [forecastData]="forecastData"
+></app-forecast-display>
+
+<!-- go Back to Today (Button) -->
+<div *ngIf="showForecast" class="text-center my-3">
+  <button class="btn btn-primary" (click)="goBackToToday()">← Back to Today</button>
+</div>
+
+<!-- Weather card-->
+<app-weather-card
+  *ngIf="!showForecast && weatherData && !errorMessage"
+  [weatherData]="weatherData"
+></app-weather-card>
+
+<!-- Error (If wrong City Entered)-->
+<div *ngIf="errorMessage" class="text-center">
+  <img src="https://http.fish/404.jpg" alt="404 Not Found" style="max-width: 300px; margin: 0 auto 25px;" />
+  <h3>City Not Found</h3>
+  {{ errorMessage }}
+</div>
+
+<router-outlet></router-outlet>

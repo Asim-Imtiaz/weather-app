@@ -1,0 +1,49 @@
+<!-- Weather cards -->
+ <div *ngIf="weatherData" class="weather-info mt-5">
+  <div class="text-center">
+    <h1>Weather in {{ weatherData?.name }}</h1>
+    <p>{{ currentDateTime }}</p>
+    <img *ngIf="weatherData?.weather" 
+    [src]="'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'" 
+    alt="Weather Icon" height="100px" width="100px">
+  </div>
+ <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card bg-light-blue" style="width: 100%;">
+        <div class="card-body">
+          <p class="card-title">Temperature</p>
+          <h4 class="card-text">{{ weatherData.main.temp }}°C</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card bg-light-blue" style="width: 100%;">
+        <div class="card-body">
+          <p class="card-title">Humidity</p>
+          <h4 class="card-text">{{ weatherData.main.humidity }}%</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card bg-light-blue" style="width: 100%;">
+        <div class="card-body">
+          <p class="card-title">Wind Speed</p>
+          <h4 class="card-text">{{ weatherData.wind.speed }} km/h</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+
+        <h5>{{ weatherData.weather[0].description }}</h5>
+
+    </div>
+
+
+ 
+</div>
+
+

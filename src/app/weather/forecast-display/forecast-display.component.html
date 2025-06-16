@@ -1,0 +1,29 @@
+<div *ngIf="forecastData" class="container mt-4">
+  <h2>3-Days Forecast:</h2>
+  <div class="table-responsive">
+    <table class="table text-center border border-dark">
+      <thead>
+      <tr>
+        <th>Day</th>
+        <th>Description</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Precipitation</th>
+        <th>Wind</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let day of forecastData; let i = index">
+      <td>{{ getDayLabel(day.date, i) }}</td>
+      <td>{{ day.description }}</td>
+      <td>{{ day.high }}°C</td>
+      <td>{{ day.low }}°C</td>
+      <td>{{ day.precipitation }}%</td>
+      <td>{{ day.wind }} km/h</td>
+    </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
